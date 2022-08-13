@@ -17,8 +17,8 @@ begin
 	'inner join  ['+@ServerIP+'].mashaghel.dbo.tashkhis_inf t on t.modi_seq=k.Modi_Seq '+
 	'where k.Cod_Hozeh/100 in(select xedare from Taj_Tb_Servers where xServerIP='''+@ServerIP+''') '+
 	'order by k.Cod_Hozeh,cast(replace(k.K_Parvand,''/'','''')as bigint),k.sal '
-	print (@Query)
-
+	--print (@Query)
+	exec (@Query)
 	fetch next from _Cursor
 	into @ServerIP
 end
